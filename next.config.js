@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
     images: {
         domains: ["cdn.imagin.studio"],
         remotePatterns: [
@@ -10,7 +11,10 @@ const nextConfig = {
                 pathname: '/getimage/**',
             },
         ],
-    }
+        unoptimized: true,
+    },
+    basePath: '/carhub',
+    assetPrefix: '/carhub',
 }
 
 module.exports = nextConfig
