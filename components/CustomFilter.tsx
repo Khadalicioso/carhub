@@ -32,7 +32,14 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
           {/* Button for the listbox */}
           <Listbox.Button className='custom-filter__btn'>
             <span className='block truncate'>{selected.title}</span>
-            <Image src='/chevron-up-down.svg' width={20} height={20} className='ml-4 object-contain' alt='chevron_up-down' />
+            <Image 
+              src={process.env.NEXT_PUBLIC_BASE_PATH + '/chevron-up-down.svg'} 
+              width={20} 
+              height={20} 
+              className='ml-4 object-contain' 
+              alt='chevron_up-down'
+              priority 
+            />
           </Listbox.Button>
           {/* Transition for displaying the options */}
           <Transition
