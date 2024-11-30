@@ -51,7 +51,7 @@ const CarCard = ({ car }: CarCardProps) => {
         <div className="flex group-hover:invisible w-full justify-between text-grey">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image
-              src="/steering-wheel.svg"
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/steering-wheel.svg"}
               width={20}
               height={20}
               alt="steering wheel"
@@ -60,13 +60,23 @@ const CarCard = ({ car }: CarCardProps) => {
               {transmission === "a" ? "Automatic" : "Manual"}
             </p>
           </div>
-          <div className="car-card__icon">
-            <Image src="/tire.svg" width={20} height={20} alt="seat" />
-            <p className="car-card__icon-text">{drive.toUpperCase()}</p>
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/tire.svg"}
+              width={20}
+              height={20}
+              alt="tire"
+            />
+            <p className="text-[14px] leading-[17px]">{drive.toUpperCase()}</p>
           </div>
-          <div className="car-card__icon">
-            <Image src="/gas.svg" width={20} height={20} alt="seat" />
-            <p className="car-card__icon-text">{city_mpg} MPG</p>
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/gas.svg"}
+              width={20}
+              height={20}
+              alt="gas"
+            />
+            <p className="text-[14px] leading-[17px]">{city_mpg} MPG</p>
           </div>
         </div>
 
@@ -75,7 +85,7 @@ const CarCard = ({ car }: CarCardProps) => {
             title="View More"
             containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
-            rightIcon="/right-arrow.svg"
+            rightIcon={process.env.NEXT_PUBLIC_BASE_PATH + "/right-arrow.svg"}
             handleClick={() => setIsOpen(true)}
           />
         </div>
