@@ -49,6 +49,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                     width={20}
                     height={20}
                     className="object-contain"
+                    unoptimized
                   />
                 </button>
 
@@ -60,6 +61,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                       fill
                       priority
                       className="object-contain"
+                      unoptimized
                     />
                   </div>
 
@@ -71,6 +73,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                         fill
                         priority
                         className="object-contain"
+                        unoptimized
                       />
                     </div>
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
@@ -80,6 +83,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                         fill
                         priority
                         className="object-contain"
+                        unoptimized
                       />
                     </div>
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
@@ -89,6 +93,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                         fill
                         priority
                         className="object-contain"
+                        unoptimized
                       />
                     </div>
                   </div>

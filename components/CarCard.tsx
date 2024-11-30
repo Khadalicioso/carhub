@@ -43,6 +43,7 @@ const CarCard = ({ car }: CarCardProps) => {
           fill
           priority
           className="object-contain"
+          unoptimized
         />
       </div>
 
