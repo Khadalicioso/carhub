@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-
 import SearchManufacturer from "./SearchManufacturer";
+import { fetchCars } from "@/utils";
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   <button type='submit' className={`-ml-3 z-10 ${otherClasses}`}>
@@ -22,40 +21,24 @@ const SearchBar = () => {
   const [manufacturer, setManuFacturer] = useState("");
   const [model, setModel] = useState("");
 
-  const router = useRouter();
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (manufacturer.trim() === "" && model.trim() === "") {
       return alert("Please provide some input");
     }
 
-    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
-  };
-
-  const updateSearchParams = (model: string, manufacturer: string) => {
-    // Create a new URLSearchParams object using the current URL search parameters
-    const searchParams = new URLSearchParams(window.location.search);
-
-    // Update or delete the 'model' search parameter based on the 'model' value
-    if (model) {
-      searchParams.set("model", model);
-    } else {
-      searchParams.delete("model");
+    try {
+      await fetchCars({
+        manufacturer: manufacturer.toLowerCase(),
+        model: model.toLowerCase(),
+        fuel: "",
+        year: 2022,
+        limit: 10,
+      });
+    } catch (error) {
+      console.error("Error fetching cars:", error);
     }
-
-    // Update or delete the 'manufacturer' search parameter based on the 'manufacturer' value
-    if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
-    } else {
-       searchParams.delete("manufacturer");
-    }
-
-    // Generate the new pathname with the updated search parameters
-    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
-
-    router.push(newPathname);
   };
 
   return (

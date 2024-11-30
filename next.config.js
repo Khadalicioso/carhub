@@ -2,19 +2,10 @@
 const nextConfig = {
     output: 'export',
     images: {
-        domains: ["cdn.imagin.studio"],
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'cdn.imagin.studio',
-                port: '',
-                pathname: '/getimage/**',
-            },
-        ],
         unoptimized: true,
     },
-    basePath: '/carhub',
-    assetPrefix: '/carhub',
+    basePath: process.env.NODE_ENV === 'production' ? '/carhub' : '',
+    trailingSlash: true,
 }
 
 module.exports = nextConfig
