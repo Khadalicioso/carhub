@@ -3,10 +3,10 @@ const nextConfig = {
     output: 'export',
     images: {
         unoptimized: true,
+        domains: ['cdn.imagin.studio'],
     },
     basePath: '/carhub',
     assetPrefix: '/carhub/',
-    trailingSlash: true,
 }
 
 module.exports = nextConfig
