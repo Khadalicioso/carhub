@@ -7,6 +7,14 @@ const nextConfig = {
     images: {
         unoptimized: true,
         domains: ['cdn.imagin.studio'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'cdn.imagin.studio',
+                port: '',
+                pathname: '/**',
+            },
+        ],
     },
     basePath: '/carhub',
     assetPrefix: '/carhub/',

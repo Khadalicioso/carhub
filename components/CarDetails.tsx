@@ -44,7 +44,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                   onClick={closeModal}
                 >
                   <Image
-                    src="/close.svg"
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/close.svg`}
                     alt="close"
                     width={20}
                     height={20}
